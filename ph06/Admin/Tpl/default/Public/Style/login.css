@@ -1,0 +1,138 @@
+*{
+	font-family:"微软雅黑";
+}
+body{
+	background:#f3f3f3;
+}
+.view-container {
+	padding-top: 64px;
+	min-height: 600px;
+	padding-bottom: 5rem;
+}
+.account-box-wrapper {
+	margin-top: 98px;
+	margin-bottom: 98px
+}
+.account-box {
+	position: relative;
+	left: 50%;
+	background: #FFF;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,.2);
+	border-radius: 7px;
+	padding-bottom: 30px;
+	width: 480px;
+	margin-left: -241px
+}
+.account-form-title {
+	padding: 20px 35px;
+	border-bottom: solid 1px rgba(151,159,168,.2);
+	margin-bottom: 35px;
+	text-align:center;
+}
+.account-form-title label {
+	font-size: 21px;
+	color: #414952
+}
+.account-input-area {
+	margin: 0 35px 30px;
+}
+.account-input-area input {
+	width: 372px;
+	height: 56px;
+	background: #edf1f5;
+	border: 1px solid #cad3de;
+	border-radius: 5px;
+	padding: 0 20px;
+	font-size: 14px;
+	color: #2D3238
+}
+.account-input-area input.short {
+	width: 260px;
+	float: left
+}
+.account-input-area ::-webkit-input-placeholder {
+color:#8796a8
+}
+.account-input-area :-moz-placeholder {
+color:#8796a8
+}
+.account-input-area ::-moz-placeholder {
+color:#8796a8
+}
+.account-input-area :-ms-input-placeholder {
+color:#8796a8
+}
+.account-button, .account-input-area .account-send-code {
+	box-shadow: 0 2px 2px 0 rgba(45,51,56,.2);
+	color: #FFF;
+	cursor: pointer
+}
+.account-input-area input[type=number]::-webkit-inner-spin-button, .account-input-area input[type=number]::-webkit-outer-spin-button {
+-webkit-appearance:none;
+margin:0
+}
+.account-input-area input[type=number] {
+	-moz-appearance: textfield
+}
+.account-input-area .account-send-code {
+	width: 98px;
+	height: 56px;
+	border: none;
+	border-radius: 5px;
+	background: #414952;
+	font-size: 14px;
+	margin-left: 8px
+}
+.account-input-area .captcha {
+	width: 98px;
+	margin-left: 8px;
+	position: relative;
+	top: 14px;
+	cursor: pointer
+}
+.account-button {
+	margin: 28px 35px;
+	background: #4289db;
+	border-radius: 5px;
+	width: 412px;
+	height: 49px;
+	font-size: 18px;
+	border: none
+}
+.account-button span{
+	font-size:18px;
+}
+#account_login .reset-password, .account-bottom-tip.top-tip {
+	margin-bottom: 7px
+}
+.account-bottom-tip {
+	text-align: center;
+	font-size: 14px;
+	color: #8796a8;
+	line-height: 20px
+}
+.account-bottom-tip a {
+	color: #4289db;
+	text-decoration:none;
+}
+#account_login .check-box {
+	margin-top: 30px;
+	margin-left: 35px;
+	position: relative
+}
+.account-input-area span{
+	height:20px;
+	width:400px;
+	position:absolute;
+	margin-top:5px;
+	font-size:12px;
+	color:red;
+	padding-left:5px;
+}
+.logo{
+	width:100px;
+	height:45px;
+	position:absolute;
+	left:20px;
+	
+}

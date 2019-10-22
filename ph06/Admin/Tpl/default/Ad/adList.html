@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC"_//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/td/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns=http://www.w3.org/1999/xhtml xml:lang="en">
+<head>
+<meta http-equiv="Content-Type"content=" text/html;charset=UTF-8">
+<title></title>
+<link rel="stylesheet" href="__PUBLIC__/Style/common.css">
+<link rel="stylesheet" href="__PUBLIC__/Style/main.css">
+<script type="text/javascript" src="__PUBLIC__/Js/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/Js/common.js"></script>
+</head>
+<body>
+<div style="width:100%;height:44px;line-height:44px;padding-left:20px;background:#fff
+url('__PUBLIC__/images/here.gif')0px 0px repeat-x;position:fixed;top:0px;font-size:13px;font-family:'微软雅黑';">
+	当前位置：广告管理>广告列表
+</div>
+<div style="width:100%;height:44px;"></div>
+<div style="clear:both;"></div>
+<div>
+<div>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" class="list_table">
+<tr>
+    <th>广告名称</th>
+	<th>内容</th>
+	<th>链接地址</th>
+	<th>所在位置</th>
+    <th>状态</th>
+	<th>排序</th>
+	<th>操作</th>
+</tr>
+<volist name='list' id='vo'>
+<tr align="center">
+	<td>{$vo.a_name}</td>
+	<td>{$vo.a_describe}</td>
+	<td>{$vo.a_link}</td>
+<td>
+	<volist name='position' id='v'>	
+	<if condition="$vo[a_position] eq $v[value]">
+			{$v.position}
+	</if>
+	</volist>
+	</td>
+	<if condition="$vp.a_status eq 1">
+	<td><font color="green">开启</font></td>
+	<else/>
+		<td><font color="red">关闭</font></td>
+	</if>
+	<td>{$vo.a_order}</td>
+<td>
+	<a href="{:U('updateAd',array('a_id'=>$vo['a_id']))}">修改</a>
+	<a href="{:U('delete',array('a_id'=>$vo['a_id']))}" onclick="return del()">删除</a>
+	</td>
+</tr>
+</volist>
+
+<tr align="center">
+<td colspan="11">{$page}</td>
+</tr>	
+</table>
+</div>
+</div>
+</body>
+
+<script type="text/javascript">
+function del(){
+	if(confirm("确定要删除该广告么？")){
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+</script>
+</html>

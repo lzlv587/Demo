@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登录</title>
+<link  href="__PUBLIC__/css/login.css"rel="stylesheet" type="text/css"/>
+<script  src="__PUBLIC__/js/jquery.css" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){$('#c_name').blur(function(){
+	
+	var name=$(this).val();
+	if(name.length==0){
+		$('#nameMessage').html('用户名不能为空');
+	}else{
+		$.ajax({
+			url:'__APP__/Register/checkName',
+			data:{
+				'c_name':name,
+				'flag':'checkName'
+			},
+			type:'post',
+			cache:false,
+			dataType:'json',
+			success:function(data){
+				if(data.result==1){
+					$('#nameMessage').html("恭喜您，用户名可以用");
+					$('#submit')[0].disabled="";
+				}else{
+					$('#nameMessage').html("用户名已存在");
+				}
+			}
+			error:function(){
+				alert("系统异常");
+			}
+		});
+	}
+});
+$('#c_password').blur(function(){
+	var pass=$(this).val();
+	if(pass.length==0){
+		$('#passMessage').html("密码不能为空");
+	}else{
+		$('#c_email').blur(function){
+			var email=$(this).val();
+			if(!/[\w\.\_]{2,10})@(\w{1,}).([a-z]{2,4})/.test(email){
+				$('#emailMessage').html("邮箱格式不正确");
+			}else{
+				$('#emailMessage').html("邮箱可用");
+			}
+	
+});
+	
+});
+function check(){
+	var msg="";
+	if($("#c_name").val().length==0){msg+="用户名不能为空!\\n"};
+	if($("#c_password").val().length==0){msg+="密码不能为空!\\n"};
+	if($("#c_email").val().search(/[\w\.\_]{2,10}@(\w{1,}).([a-z]{2,4})/)==-1)
+		{msg+="邮箱不能为空!\\n"};
+		if(msg!=""){
+			alert(msg);
+			return false;
+		}
+	
+}
+
+
+	}
+}
+</script>
+
+
+</head>
+<body>
+<body>
+<div class="view-container">
+<div id="account_register_phone"class="account-box-wrapper">
+<div class="account-box">
+
+<div class="">
+<div class="account-form-title">
+<label>账户注册</label>
+</div>
+<form method="post"action="{:U('doRegister')}" onsubmit="return check()">
+<div class="account-input-area">
+<input id="c_name" name="c_name" type="text" placeholder="用户名">
+<span id="nameMessage"></span>
+</div>
+<div class="account-input-area">
+   <input id="c_password" name="c_password" type="password" placeholder="密码">
+<span id="passMessage"></span>
+
+<div class="account-input-area">
+   <input id="c_email" name="c_email" type="text" placeholder="邮箱">
+<span id="passMessage"></span>
+
+
+</div>
+<input type="submit" class="account-button" value="注册"id="submit"onchange="check();">
+</form>
+<div class="account-bottom-tip top-tip">
+<label></label>
+</div>
+<div class="account-bottom-tip ">
+<label>已注册过账号？<a href="{:U('Login/login')}">点击登录！</a></label>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+
+
+</body>
+</html>

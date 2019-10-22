@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns=http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type"content=" text/html; charset="UTF-8">
+<title>新闻网站</title>
+<link  href="__PUBLIC__/css/main.css"rel="stylesheet" type="text/css"/>
+<script  src="__PUBLIC__/js/jquery.css" type="text/javascript"></script>
+<script type="text/javascript">
+function publish(){
+	var n_id=document.getElementById("n_id").value;
+	var co_message=document.getElementById("co_message").value;
+	$.ajax({
+		url:'__APP__/Index/addComment',
+		data:{
+			'n_id':n_id,
+			'co_message':co_message
+		},
+		type:'post',
+		cache:false,
+		dataType:'json',
+		success:function(data){
+			alert("发布成功");
+			location.reload();
+		},
+		error:function(){
+			alert("发布失败");
+		
+		
+		}
+	});
+}
+
+
+
+
+
+
+</script>
+</head>
+<body>
+<div class="contain">
+<div class="logo"><a href="{:U(index)}"></a></div>
+<div class="menu">
+
+<ul>
+ 
+   <volist name='t_list' id='vo'>
+   <li><span>|&nbsp;&nbsp;&nbsp;<span><a href="{:U('newsList',array('t_id'=>$vo['t_id']))}">{$vo.t_name}</a></li>
+      </volist>
+      
+
+</ul>
+
+<if condition="$c_name neq null">
+   <ul id="loged">
+      <li><a href="{:U('Login/loginOut')}" target="_self">退出登录</a></li>
+      <li><a>欢迎您...{$c_name}</a></li>
+   
+   
+   </ul>
+   <else/>
+      <ul id="login">
+        <li><a href="{:U('Register/register')}" target="_self">注册</a></li>
+        <li><a href="{:U('Login/login')}" target="_self">登录</a></li>
+      
+      </ul>
+</if>
+<div class="line1"></div>
+<div class="main">
+<div class="select">
+<form action="{:U('Index/select')}" method="post">
+<div class="select_left">
+  <strong>搜索</strong>
+  <input name="keyword" type="text" placeholder="请输入关键字"/>
+
+</div>
+<div class="select_right">
+ 
+  <input name="Submit" type="Submit" value="立即搜索"/>
+
+</div>
+</form>
+</div>
+<div class="currect_position">
+  当前位置:<a href="{:U(index)}">新闻网站</a>&nbsp;>&nbsp;<a href="{:U('newsList',array('t_id'=>$type_id))}">{$type_name}</a>
+  &nbsp;>&nbsp;{$news.n_title}
+
+</div>
+</div>
+<div style="clear:both;"></div>
+<div class="details">
+<div class="details_news_title">{$news.n_title}</div>
+<div class="details_news_author">
+<span style="margin-right:5px">作者: {$author}</span>
+<span style="margin-right:5px">点击数: <strong class="rank">{$news.n_nums}</strong></span>
+<span class="updatetime" style="margin-right:5px">发布时间: {$news.n_addtime|date="Y-m-d",###}</span>
+
+</div>
+<div class="details_news_message">
+{$news.n_message}
+</div>
+</div>
+
+<div class="answer">
+   <div class="details_news_title">评论</div>
+   <div class="answer_cont">
+   <volist id="vo" name="c_list">
+   <div class="answer_list">
+   <span>{$vo.co_name}:</span>{$vo.co_message}
+   <p>{$vo.co_addtime|date="Y-m-d",###}</p>
+   </div>
+   </volist>
+   </div>
+   
+    <div class="details_news_bottom">{$page}</div>
+       <div class="answer_cont_bottom">
+       <if condition="$c_name neq null">
+       <table>
+       <input type="hidden" name="n_id" id="n_id" value="{$news.n_id}">
+           <tr>
+           <td>我的评论:</td>
+           <td>
+       <textarea name="co_message" id="co_message" rows="2" cols="90"></textarea>
+       </td>
+       </tr>
+       <tr>
+          <td colspan=2 align=center>
+          <input type="button" onclick="publish()" value="发布">
+          </td>
+          </tr>
+         </table>
+         <else/>
+         你尚未登录，请登录后再进行评论。
+         <p>
+            <a href="{:U('Register/register')}">注册</a>
+       </p>
+       </if>
+       </div>
+       </div>
+        </div>
+   
+   <div class="footer">
+      <volist id='vo' name='link'>
+      <if condition="$i eq count($link)">
+      <a href={$vo.a.link}>{$vo.a.name}</a>
+      <else/>
+       <a href={$vo.a.link}>{$vo.a.name}</a>&nbsp|&nbsp
+       </if>
+       </volist>
+       <div style='display:none'></div>
+   
+   </div>
+ 
+
+
+
+
+
+
+
+</div>
+</body>
+</html>

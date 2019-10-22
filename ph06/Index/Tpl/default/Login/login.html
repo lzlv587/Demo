@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登录</title>
+<link  href="__PUBLIC__/css/login.css"rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div class="view-container ">
+<div id="account_login"class="account-box-wrapper">
+<div class="account-box ">
+<form method="post" action="{:U('doLogin')}">
+<div class="account-form-title ">
+<label>账号登录</label>
+</div>
+<div class="account-input-area ">
+<input name="c_name"type="text" placehoder="用户名">
+</div>
+<div class="account-input-area ">
+<input type="pasword" name="c_password" placehoder="密码">
+</div>
+
+<input class="account-button"type="submit" value="登录">
+<div class="account-buttom-tip ">
+<label>还没账户？<a href="{:U('Register/register')}">马上注册！</a></label>
+</div>
+
+
+</form>
+</div>
+</div>
+
+
+</div>
+
+</body>
+</html>

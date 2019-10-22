@@ -1,0 +1,12 @@
+[ 2019-06-13T16:02:28+08:00 ] 0.0.0.0 
+NOTIC: [8] Use of undefined constant URL_COMPAT - assumed 'URL_COMPAT' C:\Users\Administrator.PC-20161120QTBE\Zend\workspaces\DefaultWorkspace12.5\ph06\ThinkPHP\Lib\Core\Dispatcher.class.php 第 33 行.
+NOTIC: [8] Use of undefined constant URL_REWRITE - assumed 'URL_REWRITE' C:\Users\Administrator.PC-20161120QTBE\Zend\workspaces\DefaultWorkspace12.5\ph06\ThinkPHP\Lib\Core\Dispatcher.class.php 第 36 行.
+NOTIC: [8] Use of undefined constant _PHP_FILE_ - assumed '_PHP_FILE_' C:\Users\Administrator.PC-20161120QTBE\Zend\workspaces\DefaultWorkspace12.5\ph06\ThinkPHP\Lib\Core\Dispatcher.class.php 第 44 行.
+NOTIC: [8] Undefined index: REQUEST_URI C:\Users\Administrator.PC-20161120QTBE\Zend\workspaces\DefaultWorkspace12.5\ph06\ThinkPHP\Lib\Core\Dispatcher.class.php 第 141 行.
+NOTIC: [8192] preg_replace(): The /e modifier is deprecated, use preg_replace_callback instead C:\Users\Administrator.PC-20161120QTBE\Zend\workspaces\DefaultWorkspace12.5\ph06\ThinkPHP\Common\common.php 第 217 行.
+NOTIC: [8] Undefined index: REQUEST_METHOD C:\Users\Administrator.PC-20161120QTBE\Zend\workspaces\DefaultWorkspace12.5\ph06\ThinkPHP\Lib\Core\App.class.php 第 42 行.
+INFO: [ app_begin ] --START--
+INFO: ReadHtmlCache Behavior ::run [ RunTime:0.003000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.020000s ]
+NOTIC: [8] Undefined index: REQUEST_URI C:\Users\Administrator.PC-20161120QTBE\Zend\workspaces\DefaultWorkspace12.5\ph06\ThinkPHP\Lib\Core\Log.class.php 第 82 行.
+
